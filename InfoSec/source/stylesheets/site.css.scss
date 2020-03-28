@@ -1,24 +1,43 @@
-body {
-  background-color: #fbc547;
-  color: #333;
+:root {
+  --background-color: #ff8080;
+  --white-color: #ffffff;
+  --hover-link-color: #000000;
   font-family: -apple-system, BlinkMacSystemFont, "Avenir Next", "Avenir",
     "Segoe UI", "Lucida Grande", "Helvetica Neue", "Helvetica", "Fira Sans",
     "Roboto", "Noto", "Droid Sans", "Cantarell", "Oxygen", "Ubuntu",
     "Franklin Gothic Medium", "Century Gothic", "Liberation Sans", sans-serif;
-  padding: 18vh 1rem;
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+/* HEADER */
+header h1 {
   text-align: center;
+  padding: 25px;
+  background-color: var(--background-color);
+  color: var(--white-color);
 }
 
-a {
-  color: rgba(#000, 0.7);
-
-  &:focus,
-  &:hover {
-    color: rgba(#000, 0.6);
-  }
+/* TASKS */
+.list-group li {
+  margin: 5px;
+}
+.list-group .badge {
+  margin-left: 10px;
 }
 
-.middleman-logo {
-  margin-bottom: 1rem;
-  width: 10rem;
+
+/* NAVIGATION */
+.nav {
+  background-color: var(--background-color);
+  padding: 25px;
+}
+
+nav a {
+  color: var(--white-color);
+}
+
+nav a:hover {
+  color: var(--hover-link-color);
 }

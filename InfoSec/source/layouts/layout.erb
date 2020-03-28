@@ -7,10 +7,18 @@
           content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Use the title from a page's frontmatter if it has one -->
     <title><%= current_page.data.title || "Middleman" %></title>
-    <%= stylesheet_link_tag "site" %>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <%= javascript_include_tag "site" %>
   </head>
   <body>
-    <%= yield %>
+    
+    <%= partial 'partials/header' %> <%# Adds the header. %>
+
+    <div id = "main-content">
+      <%= yield %>
+    </div>
+
+    <%= partial 'partials/nav' %> <%# Adds the navigation. %>
+
   </body>
 </html>
