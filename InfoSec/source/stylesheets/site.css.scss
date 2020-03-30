@@ -32,6 +32,10 @@ header h1 {
 .nav {
   background-color: var(--background-color);
   padding: 25px;
+  padding-right: 100px;
+  padding-left: 100px;
+  display: flex;
+  justify-content: space-between;
 }
 
 nav a {

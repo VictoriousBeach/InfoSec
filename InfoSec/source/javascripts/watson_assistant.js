@@ -33,7 +33,7 @@ assistant.createSession({
         sessionId: session_id,
         input: {
             'message_type': 'text',
-            'text': 'Hello'
+            'text': 'Are you human?'
             }
         })
         .then(res => {
