@@ -46,42 +46,87 @@ nav a:hover {
   color: var(--hover-link-color);
 }
 
-/* The sidepanel menu */
+/* SIDEPANEL */
 .sidepanel {
-  height: 800px; /* Specify a height */
+  height: 750px; /* Specify a height */
   width: 0; /* 0 width - change this with JavaScript */
   position: fixed; /* Stay in place */
   z-index: 1; /* Stay on top */
   top: 0;
   right: 0;
-  background-color: #111; /* Black*/
+  background-color: #ffffff; /* White*/
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 60px; /* Place content 60px from the top */
+  // padding-left: 15px; /* Place content 15px from the left */
+  // padding-right: 15px; /* Place content 15px from the right */
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidepanel */
 }
 
-/* The sidepanel links */
-.sidepanel a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-  display: block;
-  transition: 0.3s;
-}
+/* The sidepanel links --- REMOVED*/
+// .sidepanel a {
+//   padding: 8px 8px 8px 32px;
+//   text-decoration: none;
+//   font-size: 25px;
+//   color: #818181;
+//   display: block;
+//   transition: 0.3s;
+// }
 
 /* When you mouse over the navigation links, change their color */
-.sidepanel a:hover {
-  color: #f1f1f1;
-}
+// .sidepanel a:hover {
+//   color: #000000;
+// }
 
 /* Position and style the close button (top right corner) */
 .sidepanel .closebtn {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 25px;
   font-size: 36px;
   margin-left: 50px;
+  color: #CC0000;
+}
+
+/* MESSAGING CHAT CARDS */
+.chatbot-res {
+  right: 50px;
+  left: 0px;
+  border-color: #808080
+}
+
+.user-res {
+  right: 0px;
+  left: 50px;
+  border-color: #CC0000;
+}
+
+/* Add styles to the form container */
+.chat-submit {
+  max-width: 500px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width textarea */
+.chat-submit textarea {
+  display:inline-block;
+  width: 55%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+  resize: none;
+  min-height: 30px;
+}
+
+/* When the textarea gets focus, do something */
+.chat-submit textarea:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+#send-btn {
+  display:inline-block;
 }
 
 /* PASSWORD CHECKER */
