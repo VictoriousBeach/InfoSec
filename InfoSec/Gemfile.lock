@@ -8,7 +8,7 @@ GEM
       rack-test (~> 0.6.3)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
-    actionview (>= 5.2.4.2)
+    actionview (5.0.7.2)
       activesupport (= 5.0.7.2)
       builder (~> 3.1)
       erubis (~> 2.7.0)
@@ -41,7 +41,6 @@ GEM
     execjs (2.7.0)
     fast_blank (1.0.0)
     fastimage (2.1.7)
-    ffi (1.12.2)
     ffi (1.12.2-x64-mingw32)
     haml (5.1.2)
       temple (>= 0.8.0)
@@ -98,8 +97,6 @@ GEM
       uglifier (~> 3.0)
     mini_portile2 (2.4.0)
     minitest (5.14.0)
-    nokogiri (1.10.9)
-      mini_portile2 (~> 2.4.0)
     nokogiri (1.10.9-x64-mingw32)
       mini_portile2 (~> 2.4.0)
     padrino-helpers (0.13.3.4)
@@ -129,8 +126,6 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
-    sassc (2.2.1)
-      ffi (~> 1.9)
     sassc (2.2.1-x64-mingw32)
       ffi (~> 1.9)
     sassc-rails (2.1.2)
@@ -160,7 +155,6 @@ GEM
     wdm (0.1.1)
 
 PLATFORMS
-  ruby
   x64-mingw32
 
 DEPENDENCIES
@@ -172,4 +166,4 @@ DEPENDENCIES
   wdm (~> 0.1)
 
 BUNDLED WITH
-   2.1.4
+   2.0.1

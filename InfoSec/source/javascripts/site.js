@@ -48,4 +48,6 @@ function checkStrength(password) {
   $("#bar")
       .css("width", strength + "%")
       .attr("aria-valuenow", strength)
+
+//   $("#password").hide()
 }
