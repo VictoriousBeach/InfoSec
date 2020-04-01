@@ -1,3 +1,5 @@
+//= require jquery
+
 /* Password Checker */
 let password = document.getElementById("password")
 
