@@ -12,7 +12,6 @@ function openNav() {
   }
   
 /* Chatbot Functionality */
-
 function generateResponse() {
     let userMsg = document.getElementById("msg").value;
 
@@ -22,8 +21,8 @@ function generateResponse() {
     //ADD A USER MSG TO THE CHAT
     addUserBubble(userMsg);
 
-    // pass message to Watson
-    let botMsg = "Hey there!";
+    //PASS MSG TO DIALOGFLOW
+    let botMsg = sendMsg(userMsg);
     
     //ADD A BOT MSG TO THE CHAT
     // wait(4000);
@@ -81,6 +80,31 @@ function wait(ms) {
     var d2 = null;
     do { d2 = new Date(); }
     while(d2-d < ms);
+}
+
+/* DialogFlow API Call */
+function sendMsg(newMsg){
+    let response = "Oooppss";
+
+    //GET THE REQUEST TO DIALOGFLOW IN A NICE LITTLE PACKAGE WITH THE USER'S MESSAGE
+    var request = new Request('https://api.dialogflow.com/v1/query?v=20150910&lang=en&query=' + newMsg + '&sessionId=12345', {
+        headers: new Headers({
+            "Authorization": "Bearer 75d41fb167544e40a87d524900554a82" //API KEY
+        })
+    });
+
+    //SEND THE REQUEST VIA FETCH
+    fetch(request)
+    .then(response => response.json())
+    .then(json => {
+        console.log('BOT RESPONSE:', json.result.fulfillment.speech);
+        response = json.result.fulfillment.speech;
+    })
+    .catch(function(error) { 
+        console.log ('ERROR =>', error);
+    });
+
+    return response;
 }
 
 /* Password Checker */
