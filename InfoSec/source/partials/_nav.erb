@@ -1,40 +1,33 @@
 <%# Creates a tabular navigation bar, which also acts as the footer. %>
 
- <nav id = "navigation" class="nav nav-pills nav-justified fixed-bottom">
-   <%# The task page, which is the sites homepage by default. %>
-   <a type="button" class="btn btn-outline-light btn-lg" class="nav-item nav-link" href="/index.html">Tasks</a>
+<nav id = "navigation" class="nav nav-pills nav-justified fixed-bottom">
+  <%# The task page, which is the sites homepage by default. %>
+  <a type="button" class="btn btn-outline-light btn-lg" class="nav-item nav-link" href="/index.html">Tasks</a>
 
-   <%# The modules page. %>
-   <a type="button" class="btn btn-outline-light btn-lg" class="nav-item nav-link" href="/modules.html">Modules</a>
+  <%# The modules page. %>
+  <a type="button" class="btn btn-outline-light btn-lg" class="nav-item nav-link" href="/modules.html">Modules</a>
 
-   <%# The questions page, which links to the chatbot. %>
-   <a type="button" class="btn btn-outline-light btn-lg" class="nav-item nav-link" href="#" onclick="openNav()">Questions</a>
+  <%# The questions page, which links to the chatbot. %>
+  <a type="button" class="btn btn-outline-light btn-lg" class="nav-item nav-link" href="#" onclick="openNav()">Questions</a>
 
- </nav>
+</nav>
 
- <div id="mySidepanel" class="sidepanel">
+<div id="mySidepanel" class="sidepanel">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <div class="card text-left w-75 chatbot-res" style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="card-link">Card link</a>
-      <a href="#" class="card-link">Another link</a>
+  <div id="chat-view">
+    <div class="card text-left w-75 chatbot-res">
+      <div class="card-body">
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      </div>
+    </div>
+    <div class="card text-left w-75 user-res">
+      <div class="card-body">
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      </div>
     </div>
   </div>
-  <div class="card text-left w-75 user-res" style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="card-link">Card link</a>
-      <a href="#" class="card-link">Another link</a>
-    </div>
-  </div>
-
   <form class="chat-submit">
-    <textarea placeholder="Type a message.."></textarea>
-    <button type="button" class="btn btn-secondary" id = "send-btn">Send</button>
+    <textarea placeholder="Type a message.." id = "msg"></textarea>
+    <button type="button" class="btn btn-secondary btn-lg btn-block" id ="send-btn" onclick="generateResponse()">Send</button>
   </form>
 </div>

@@ -109,8 +109,7 @@ nav a:hover {
 
 /* Full-width textarea */
 .chat-submit textarea {
-  display:inline-block;
-  width: 55%;
+  width: 100%;
   padding: 15px;
   margin: 5px 0 22px 0;
   border: none;
@@ -125,9 +124,9 @@ nav a:hover {
   outline: none;
 }
 
-#send-btn {
-  display:inline-block;
-}
+// #send-btn {
+//   display: inline-block;
+// }
 
 /* PASSWORD CHECKER */
 .card {

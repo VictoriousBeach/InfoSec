@@ -1,5 +1,7 @@
 // This is where it all goes :)
-/* Set the width of the sidebar to 250px (show it) */
+
+
+/* Set the width of the sidebar to 500px (show it) */
 function openNav() {
     document.getElementById("mySidepanel").style.width = "500px";
   }
@@ -9,7 +11,77 @@ function openNav() {
     document.getElementById("mySidepanel").style.width = "0";
   }
   
-//= require jquery
+/* Chatbot Functionality */
+
+function generateResponse() {
+    let userMsg = document.getElementById("msg").value;
+
+    //CLEAR TEXTAREA FOR ANOTHER MESSAGE
+    document.getElementById("msg").value = "";
+
+    //ADD A USER MSG TO THE CHAT
+    addUserBubble(userMsg);
+
+    // pass message to Watson
+    let botMsg = "Hey there!";
+    
+    //ADD A BOT MSG TO THE CHAT
+    // wait(4000);
+    addBotBubble(botMsg);
+}
+
+function addUserBubble(msg){
+    // CREATE THE BUBBLE FOR THE MESSAGE - CARD
+    var bubble = document.createElement("div");
+    bubble.className = "card text-left w-75 user-res";
+
+    // CREATE THE CARD BODY
+    var msgBody = document.createElement("div");
+    msgBody.className = "card-body";
+
+    // CREATE THE CARD TEXT
+    var msgText = document.createElement("p");
+    msgText.className = "card-text";
+
+    // ADD THE MESSAGE TO A <P>
+    var text = document.createTextNode(msg);
+
+    // APPEND ALL THE ELEMENTS TOGETHER
+    msgText.appendChild(text); 
+    msgBody.appendChild(msgText);
+    bubble.appendChild(msgBody);
+    document.getElementById('chat-view').appendChild(bubble);
+}
+
+function addBotBubble(msg){
+    // CREATE THE BUBBLE FOR THE MESSAGE - CARD
+    var bubble = document.createElement("div");
+    bubble.className = "card text-left w-75 chatbot-res";
+
+    // CREATE THE CARD BODY
+    var msgBody = document.createElement("div");
+    msgBody.className = "card-body";
+
+    // CREATE THE CARD TEXT
+    var msgText = document.createElement("p");
+    msgText.className = "card-text";
+
+    // ADD THE MESSAGE TO A <P>
+    var text = document.createTextNode(msg);
+
+    // APPEND ALL THE ELEMENTS TOGETHER
+    msgText.appendChild(text); 
+    msgBody.appendChild(msgText);
+    bubble.appendChild(msgBody);
+    document.getElementById('chat-view').appendChild(bubble);
+}
+
+function wait(ms) {
+    var d = new Date();
+    var d2 = null;
+    do { d2 = new Date(); }
+    while(d2-d < ms);
+}
 
 /* Password Checker */
 let password = document.getElementById("password")
@@ -48,6 +120,4 @@ function checkStrength(password) {
   $("#bar")
       .css("width", strength + "%")
       .attr("aria-valuenow", strength)
-
-//   $("#password").hide()
 }
