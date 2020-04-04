@@ -1,18 +1,35 @@
 <%# Creates a tabular navigation bar, which also acts as the footer. %>
 
- <nav id = "navigation" class="nav nav-pills nav-justified fixed-bottom">
-   <%# The task page, which is the sites homepage by default. %>
-   <a type="button" class="btn btn-outline-light btn-lg" class="nav-item nav-link" href="/index.html">Tasks</a>
+<nav id = "navigation" class="nav nav-pills nav-justified fixed-bottom">
+  <%# The task page, which is the sites homepage by default. %>
+  <a type="button" class="btn btn-outline-light btn-lg" class="nav-item nav-link" href="/index.html">Tasks</a>
 
-   <%# The modules page. %>
-   <a type="button" class="btn btn-outline-light btn-lg" class="nav-item nav-link" href="/modules.html">Modules</a>
+  <%# The modules page. %>
+  <a type="button" class="btn btn-outline-light btn-lg" class="nav-item nav-link" href="/modules.html">Modules</a>
 
-   <%# The questions page, which links to the chatbot. %>
-   <a type="button" class="btn btn-outline-light btn-lg" class="nav-item nav-link" href="#" onclick="openNav()">Questions</a>
+  <%# The questions page, which links to the chatbot. %>
+  <a type="button" class="btn btn-outline-light btn-lg" class="nav-item nav-link" href="#" onclick="openNav()">Chatbot</a>
 
- </nav>
+</nav>
 
- <div id="mySidepanel" class="sidepanel">
+<div id="mySidepanel" class="sidepanel">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="#">Chat will be added here!</a>
+  <div id="chat-view">
+    <div class="card text-left w-75 chatbot-res">
+      <div class="row no-gutters">
+        <div class="col-md-3">
+          <img src="https://cdn.clipart.email/3c8e20cd2c9d95810a5286da385599f9_alex-clauss-on-twitter-day-13-bullseye-the-target-dog-one-of-_800-800.jpeg" class="card-img" alt="Target Dog">
+        </div>
+        <div class="col-md-9">
+          <div class="card-body">
+            <p class="card-text">Hey my name is Bullseye! Let me know if you have any questions</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <form class="chat-submit">
+    <textarea placeholder="Type a message.." id = "msg"></textarea>
+    <button type="button" class="btn btn-secondary btn-lg btn-block" id ="send-btn" onclick="generateResponse()">Send</button>
+  </form>
 </div>
