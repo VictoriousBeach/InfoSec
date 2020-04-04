@@ -26,7 +26,6 @@ async function generateResponse() {
     console.log(botMsg);
     
     //ADD A BOT MSG TO THE CHAT
-    // wait(4000);
     addBotBubble(botMsg);
 }
 
@@ -100,13 +99,6 @@ function addBotBubble(msg){
     bubble.appendChild(rows);
     
     document.getElementById('chat-view').appendChild(bubble);
-}
-
-function wait(ms) {
-    var d = new Date();
-    var d2 = null;
-    do { d2 = new Date(); }
-    while(d2-d < ms);
 }
 
 /* DialogFlow API Call */
