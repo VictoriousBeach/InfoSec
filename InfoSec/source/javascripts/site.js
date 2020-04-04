@@ -4,15 +4,15 @@
 /* Set the width of the sidebar to 500px (show it) */
 function openNav() {
     document.getElementById("mySidepanel").style.width = "500px";
-  }
+}
   
-  /* Set the width of the sidebar to 0 (hide it) */
-  function closeNav() {
+/* Set the width of the sidebar to 0 (hide it) */
+function closeNav() {
     document.getElementById("mySidepanel").style.width = "0";
-  }
-  
+}
+
 /* Chatbot Functionality */
-function generateResponse() {
+async function generateResponse() {
     let userMsg = document.getElementById("msg").value;
 
     //CLEAR TEXTAREA FOR ANOTHER MESSAGE
@@ -22,7 +22,8 @@ function generateResponse() {
     addUserBubble(userMsg);
 
     //PASS MSG TO DIALOGFLOW
-    let botMsg = sendMsg(userMsg);
+    let botMsg = await sendMsg(userMsg);
+    console.log(botMsg);
     
     //ADD A BOT MSG TO THE CHAT
     // wait(4000);
@@ -57,6 +58,24 @@ function addBotBubble(msg){
     var bubble = document.createElement("div");
     bubble.className = "card text-left w-75 chatbot-res";
 
+    // CREATE A ROW WITHOUT GUTTERS
+    var rows = document.createElement("div");
+    rows.className = "row no-gutters";
+
+    // CREATE THE IMAGE COLUMN
+    var imgCol = document.createElement("div");
+    imgCol.className = "col-md-3";
+
+    // CREATE THE IMAGE
+    var img = document.createElement("img");
+    img.src = "https://cdn.clipart.email/3c8e20cd2c9d95810a5286da385599f9_alex-clauss-on-twitter-day-13-bullseye-the-target-dog-one-of-_800-800.jpeg";
+    img.className = "card-img";
+    img.alt = "Target dog";
+
+    // CREATE THE TEXT COLUMN
+    var textCol = document.createElement("div");
+    textCol.className = "col-md-9";
+
     // CREATE THE CARD BODY
     var msgBody = document.createElement("div");
     msgBody.className = "card-body";
@@ -71,7 +90,15 @@ function addBotBubble(msg){
     // APPEND ALL THE ELEMENTS TOGETHER
     msgText.appendChild(text); 
     msgBody.appendChild(msgText);
-    bubble.appendChild(msgBody);
+    textCol.appendChild(msgBody);
+
+    imgCol.appendChild(img);
+
+    rows.appendChild(imgCol);
+    rows.appendChild(textCol);
+
+    bubble.appendChild(rows);
+    
     document.getElementById('chat-view').appendChild(bubble);
 }
 
@@ -84,8 +111,6 @@ function wait(ms) {
 
 /* DialogFlow API Call */
 function sendMsg(newMsg){
-    let response = "Oooppss";
-
     //GET THE REQUEST TO DIALOGFLOW IN A NICE LITTLE PACKAGE WITH THE USER'S MESSAGE
     var request = new Request('https://api.dialogflow.com/v1/query?v=20150910&lang=en&query=' + newMsg + '&sessionId=12345', {
         headers: new Headers({
@@ -94,17 +119,16 @@ function sendMsg(newMsg){
     });
 
     //SEND THE REQUEST VIA FETCH
-    fetch(request)
+    return fetch(request)
     .then(response => response.json())
     .then(json => {
         console.log('BOT RESPONSE:', json.result.fulfillment.speech);
-        response = json.result.fulfillment.speech;
+        return json.result.fulfillment.speech;
     })
     .catch(function(error) { 
         console.log ('ERROR =>', error);
+        return "Our chatbot is currently down. Please refresh the page an try again";
     });
-
-    return response;
 }
 
 /* Password Checker */
