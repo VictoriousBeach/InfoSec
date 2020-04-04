@@ -19,7 +19,22 @@ header h1 {
   color: var(--white-color);
 }
 
-/* TASKS */
+/* MODULE CONTENT */
+/** Card Styling **/
+.card {
+  margin: 2em;
+  text-align: center;
+}
+
+.card input {
+  margin: 1em;
+}
+
+.card .btn-grid .btn {
+  margin: 1em;
+}
+
+/** Tasks **/
 .list-group li {
   margin: 5px;
 }
@@ -27,6 +42,10 @@ header h1 {
   margin-left: 10px;
 }
 
+/** Phishing Module **/
+#email {
+  text-align: left;
+}
 
 /* NAVIGATION */
 .nav {
@@ -120,14 +139,4 @@ nav a:hover {
 .chat-submit textarea:focus {
   background-color: #ddd;
   outline: none;
-}
-
-/* PASSWORD CHECKER */
-.card {
-  margin: 2em;
-  text-align: center;
-}
-
-.card input {
-  margin: 1em;
 }

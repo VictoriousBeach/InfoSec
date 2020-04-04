@@ -131,7 +131,7 @@ function sendMsg(newMsg){
     });
 }
 
-/* Password Checker */
+/* PASSWORD CHECKER */
 let password = document.getElementById("password")
 
 /* For every character entered, check the password strength */
@@ -141,7 +141,7 @@ password.addEventListener('keyup', function() {
 
 /* Checks password strength */
 function checkStrength(password) {
-	let progressBar = document.getElementById("bar")
+  let progressBar = document.getElementById("bar")
   let strength = 0
 
   /* Checks for matches... */
