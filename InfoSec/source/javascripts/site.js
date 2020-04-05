@@ -149,7 +149,7 @@ function checkStrength(password) {
   if (password.match(/[-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]/)){
   	strength += 20
   }
-  if (password.length > 6) {
+  if (password.length > 7) {
   	strength += 10
   }
   if (password.length > 10) {
@@ -184,46 +184,54 @@ function genPass(){
 
     let finalPass = [];
     let pos = 0;
+    let noCheck = false;
 
     while(pos < len){
-        if(document.getElementById("upperCheck").checked === false && document.getElementById("lowerCheck").checked === false && document.getElementById("numsCheck").checked === false && document.getElementById("symsCheck").checked === false){
+        if(document.getElementById("upperCheck").checked === false && document.getElementById("lowerCheck").checked === false && document.getElementById("numCheck").checked === false && document.getElementById("symCheck").checked === false){
             pos = len;
+            noCheck = true;
             //need to add some more error handling 
         }
-        if(document.getElementById("upperCheck").checked === true){
+        if(document.getElementById("upperCheck").checked === true && pos < len){
             let randIndex = Math.floor(Math.random() * upper.length);
             finalPass.push(upper[randIndex]);
             pos++;  
         }
-        if(document.getElementById("lowerCheck").checked === true){
+        if(document.getElementById("lowerCheck").checked === true && pos < len){
             let randIndex = Math.floor(Math.random() * lower.length);
             finalPass.push(lower[randIndex]);
             pos++;  
         }
-        if(document.getElementById("numCheck").checked === true){
+        if(document.getElementById("numCheck").checked === true && pos < len){
             let randIndex = Math.floor(Math.random() * nums.length);
             finalPass.push(nums[randIndex]);
             pos++;  
         }
-        if(document.getElementById("symCheck").checked === true){
+        if(document.getElementById("symCheck").checked === true && pos < len){
             let randIndex = Math.floor(Math.random() * syms.length);
             finalPass.push(syms[randIndex]);
             pos++;  
         }
     }
 
-    finalPass = shuffle(finalPass);
-    document.getElementById("generatedPass").innerHTML = finalPass.toString();
-    
+    if (noCheck){
+        document.getElementById("generatedPass").innerHTML = "Please select at least one checkbox to have a password generated";
+    } else {
+        finalPass = shuffle(finalPass);
+        document.getElementById("generatedPass").innerHTML = finalPass.join("");
+    } 
 } 
 
+// USED THE UNBIASED SHUFFLE ALGORITHM FISHER-YATES SHUFFLE
 function shuffle(password){
     let currentIndex = password.length, tempVal, randIndex;
 
-    while (currentIndex !== 0){
-        randIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
+    // WHILE THERE REMAIN ELEMENTS TO SHUFFLE
+    while (currentIndex){
+        // PICK A REMAINING ELEMENT...
+        randIndex = Math.floor(Math.random() * currentIndex--);
 
+        // AND SWAP IT WITH THE CURRENT ELEMENT
         tempVal = password[currentIndex];
         password[currentIndex] = password[randIndex];
         password[randIndex] = tempVal;

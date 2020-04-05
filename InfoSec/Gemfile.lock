@@ -187,11 +187,7 @@ GEM
       execjs (>= 0.3.0, < 3)
     unf (0.1.4)
       unf_ext
-<<<<<<< HEAD
-=======
     unf_ext (0.0.7.7)
->>>>>>> 1c29f17cb4bbba6bf8e993ca26aa9e2952e7594c
-    unf_ext (0.0.7.7-x64-mingw32)
     wdm (0.1.1)
     websocket-driver (0.7.1)
       websocket-extensions (>= 0.1.0)
