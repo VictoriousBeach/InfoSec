@@ -161,3 +161,58 @@ function checkStrength(password) {
       .css("width", strength + "%")
       .attr("aria-valuenow", strength)
 }
+
+/* PASSWORD GENERATOR */
+function genPass(){
+    let upper = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+    let lower = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+    let nums = ['0','1','2','3','4','5','6','7','8','9'];
+    let syms = ['!', '&quot;','#','$','%','&amp;','&apos;','(',')','*','+',',','-','.','/',':',';&lt',';=&gt',';','?','@','[','\\',']','^','_','`','{','|','}','~'];
+
+    let len = 10;
+
+    let finalPass = [];
+    let pos = 0;
+
+    while(pos < len){
+        if(document.getElementById("upperCheck").checked = true){
+            let randIndex = Math.floor(Math.random() * upper.length);
+            finalPass.append(upper[randIndex]);
+            pos++;  
+        }
+        if(document.getElementById("lowerCheck").checked = true){
+            let randIndex = Math.floor(Math.random() * lower.length);
+            finalPass.append(lower[randIndex]);
+            pos++;  
+        }
+        if(document.getElementById("numCheck").checked = true){
+            let randIndex = Math.floor(Math.random() * nums.length);
+            finalPass.append(nums[randIndex]);
+            pos++;  
+        }
+        if(document.getElementById("symCheck").checked = true){
+            let randIndex = Math.floor(Math.random() * syms.length);
+            finalPass.append(syms[randIndex]);
+            pos++;  
+        }
+    }
+
+    finalPass = shuffle(finalPass);
+    document.getElementById("generatedPass").innerHTML = finalPass.toString();
+    
+} 
+
+function shuffle(password){
+    let currentIndex = password.length, tempVal, randIndex;
+
+    while (currentIndex !== 0){
+        randIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+
+        tempVal = password[currentIndex];
+        password[currentIndex] = password[randIndex];
+        array[randIndex] = tempVal;
+    }
+
+    return password;
+}
