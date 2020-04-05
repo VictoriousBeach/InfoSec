@@ -54,6 +54,9 @@ function showEmail(textNode) {
 
 /* Selecting an option, toggling email, going to next question */
 function selectOption(option) {
+
+	$(emailElement).show()
+
   if (currentQuestion > 8) {
     return startGame()
   }
@@ -64,8 +67,6 @@ function selectOption(option) {
   
   currentQuestion++
   
-  /* Hides or shows the email */
-  $(emailElement).toggle()
   
   if (currentQuestion == 9) {
   	  $(emailElement).hide()
@@ -106,6 +107,9 @@ const textNodes = [
     id: 2,
     correctAnswer: 'Nice work! You must have seen that the URL linked to ssytzz.net, not google drive.',
     wrongAnswer: 'Not quite. If you hovered over the link, you would see that at the end of the URL, it redirects to ssytzz.net. Be sure to hover over URLs before clicking on them to ensure that they\'re safe',
+    sender: 'jessryans@gmail.com',
+    subject: 'Look what I found!',
+    body: 'You\'re cousin was so silly. lol <mark><a href = "https://drive.google.com.ssytzz.net/OP9803TT">https://drive.google.com/file/d/1VqyTpuJg_g2VluzNnRKvEkjENoG0/view?usp=sharing</a></mark>',
     options: [
       {
         text: 'Continue',
@@ -117,7 +121,7 @@ const textNodes = [
     text: 'Your boss sends you a seemingly urgent email.',
     sender: 'joesmith@gmail.com',
     subject: 'change password',
-    body: 'hey, our company is reviewing passworks to make sure th ey are strong enough. can you send me yours to make sure it"s secure?',
+    body: 'hey, our compangy is reviewing passworks to make sure th ey are strong enough. can you send me yours to make sure it"s secure?',
     options: [
       {
         text: 'I can trust him.',
@@ -131,8 +135,11 @@ const textNodes = [
   },
   {
     id: 4,
-    correctAnswer: 'Correct! Just because it says it\'s coming from your boss doesn\'t mean it is. That\'s not information he should have, anyways.',
+    correctAnswer: 'Correct! Just because it says it\'s coming from your boss doesn\'t mean it is. That\'s not information he should have, anyways. Spelling and grammar mistakes are common for phishing attempts.',
     wrongAnswer: 'No, that was a phishing attempt. Phishing emails often have poor grammar or spelling, and your boss (or anyone) shouldn\'t require you to send them your password.',
+    sender: '<mark>joesmith@gmail.com</mark>',
+    subject: 'change password',
+    body: 'hey, our <mark>compangy</mark> is reviewing passworks to make sure <mark>th ey</mark> are strong enough. can you send me yours to make sure <mark>it"s</mark> secure?',
     options: [
       {
         text: 'Continue',
@@ -160,6 +167,9 @@ const textNodes = [
     id: 6,
     correctAnswer: 'Yep, this is a safe email. Always double check the email address of senders, even if it\'s someone you know, but this one is safe.',
     wrongAnswer: 'No, this is actually a completely safe (cat) video.',
+    sender: 'Mom',
+    subject: 'LOL!!!!!!!',
+    body: 'look at this video!!!! <a href="https://www.youtube.com/watch?v=t6guz6WxI9Q">https://www.youtube.com/watch?v=t6guz6WxI9Q</a>',
     options: [
       {
         text: 'Continue',
@@ -187,6 +197,9 @@ const textNodes = [
     id: 8,
     correctAnswer: 'Correct, this is a phishing attempt. The link looks valid, but the email address is misspelled as "docuslgn".',
     wrongAnswer: 'This isn\'t legitimate! The email address is not from docusign. The address is misspelled.',
+    sender: '<mark>dse@docuslgn.net</mark>',
+    subject: 'Please Sign Technology Agreement',
+    body: 'Hi, welcome aboard. Please click the link below to edit and view your document.<br><a href="https://www.docusign.net/Member/EmailStart.aspx?a=fe311f2-51d1-4977-830c-df1efff0469c&acct=387d13-fb1c-4705-9bd9-7cf575f484ce&er=e67a3f-89f1-4108-a4b2-b9f6de2">Click here to review your document.</a>',
     options: [
       {
         text: 'Continue'
