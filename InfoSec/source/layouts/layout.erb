@@ -29,7 +29,9 @@
       <%= yield %>
     </div>
 
-    <%= partial 'partials/nav' %> <%# Adds the navigation. %>
+    <footer class="site-footer">
+      <%= partial 'partials/nav' %> <%# Adds the navigation. %>
+    </footer>
 
     <!-- Our JavaScript Files -->
     <%= javascript_include_tag "site" %>
