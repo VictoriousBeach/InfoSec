@@ -149,6 +149,9 @@ function checkStrength(password) {
   if (password.match(/[-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]/)){
   	strength += 20
   }
+  if (password.match(/[tT][aA][rR][gG][eE][tT]/)){
+    strength -= 20
+  }
   if (password.length > 7) {
   	strength += 10
   }
