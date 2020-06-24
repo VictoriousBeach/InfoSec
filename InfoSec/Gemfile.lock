@@ -139,7 +139,7 @@ GEM
     parallel (1.19.1)
     popper_js (1.16.0)
     public_suffix (4.0.3)
-    rack (2.2.2)
+    rack (2.2.3)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails-dom-testing (2.0.3)
@@ -188,6 +188,7 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.7)
+    unf_ext (0.0.7.7-x64-mingw32)
     wdm (0.1.1)
     websocket-driver (0.7.1)
       websocket-extensions (>= 0.1.0)
